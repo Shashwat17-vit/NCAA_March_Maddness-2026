@@ -1,18 +1,6 @@
 # Data files (too large for GitHub, download from Kaggle)
 data/
 
-# Processed outputs
-processed/*.csv
-processed/*.parquet
-processed/*.pkl
-
-# Model files
-models/*.pkl
-models/*.h5
-models/*.pt
-models/*.pth
-models/*.joblib
-
 # Submissions
 submissions/*.csv
 
