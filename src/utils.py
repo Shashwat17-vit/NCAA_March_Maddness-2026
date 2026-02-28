@@ -251,6 +251,13 @@ def check_data_quality(df: pd.DataFrame, name: str = "DataFrame") -> None:
 
     print(f"\nShape: {df.shape[0]:,} rows × {df.shape[1]} columns")
 
+    print(f"Columns are:")
+
+    print(df.columns)
+        
+
+    print(f"")
+
     print(f"\nColumn Types:")
     print(df.dtypes.value_counts())
 

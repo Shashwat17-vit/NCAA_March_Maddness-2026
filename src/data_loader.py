@@ -7,9 +7,12 @@ import pandas as pd
 from pathlib import Path
 from typing import Literal
 
-# Project paths
-DATA_DIR = Path("/home/sagemaker-user/NCAA/data")
-PROCESSED_DIR = Path("/home/sagemaker-user/NCAA/processed")
+# Project paths - dynamically find project root
+PROJECT_ROOT = Path(__file__).parent.parent  # Go up from src/ to project root
+#DATA_DIR = PROJECT_ROOT/ "NCAA_MARCH_MADDNESS-2026" / "data"
+DATA_DIR = PROJECT_ROOT / "data"
+
+PROCESSED_DIR = PROJECT_ROOT / "processed"
 PROCESSED_DIR.mkdir(exist_ok=True)
 
 GenderType = Literal['M', 'W']
@@ -41,6 +44,7 @@ def load_seasons(gender: GenderType = 'M') -> pd.DataFrame:
         DataFrame with columns: Season, DayZero, RegionW, RegionX, RegionY, RegionZ
     """
     return pd.read_csv(DATA_DIR / f"{gender}Seasons.csv")
+
 
 
 def load_regular_season_results(gender: GenderType = 'M', detailed: bool = False) -> pd.DataFrame:
