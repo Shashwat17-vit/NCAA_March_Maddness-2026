@@ -161,7 +161,7 @@ def aggregate_four_factors(four_factors_df: pd.DataFrame) -> pd.DataFrame:
 # ==================== ELO RATING SYSTEM ====================
 
 def calculate_elo_ratings(games_df: pd.DataFrame, k_factor: int = 32,
-                         initial_elo: int = 1500) -> pd.DataFrame:
+                         initial_elo: int = 1500, scale: int = 200) -> pd.DataFrame:
     """
     Calculate Elo ratings for all teams over time.
 
@@ -169,6 +169,7 @@ def calculate_elo_ratings(games_df: pd.DataFrame, k_factor: int = 32,
         games_df: DataFrame with game results (must be sorted by Season, DayNum)
         k_factor: Elo K-factor (higher = more volatile)
         initial_elo: Starting Elo rating
+        scale: Scaling factor (200 = a 200-point gap means 10x more likely to win)
 
     Returns:
         DataFrame with columns: Season, DayNum, TeamID, Elo
@@ -193,7 +194,7 @@ def calculate_elo_ratings(games_df: pd.DataFrame, k_factor: int = 32,
         elo_l = elo_dict.get(key_l, initial_elo)
 
         # Calculate expected win probability
-        expected_w = 1 / (1 + 10 ** ((elo_l - elo_w) / 400))
+        expected_w = 1 / (1 + 10 ** ((elo_l - elo_w) / scale))
 
         # Update Elo
         new_elo_w = elo_w + k_factor * (1 - expected_w)
