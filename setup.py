@@ -15,5 +15,7 @@ setup(
         'numpy>=1.20.0',
         'matplotlib>=3.3.0',
         'seaborn>=0.11.0',
+        'scikit-learn',
+        'xgboost'
     ],
 )
