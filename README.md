@@ -297,7 +297,7 @@ jupyter nbconvert --execute notebooks/06_final_submission.ipynb
 
 ## Visualizations
 
-<!-- Replace these placeholders with your actual visualization images -->
+Adding them soon from Notebook
 
 ### Feature Distributions (Winners vs Losers)
 <!-- ![Feature Distributions](images/feature_distributions.png) -->
@@ -320,14 +320,7 @@ jupyter nbconvert --execute notebooks/06_final_submission.ipynb
 *Feature importance comparison across all three models. Each algorithm weights features differently, which is why blending them produces more robust predictions.*
 
 ---
-
-## Future Improvements
-
-- **Hyperparameter tuning with Optuna** — automated Bayesian search instead of manual tuning
-- **Isotonic calibration** — post-hoc calibration layer on top of the ensemble
-- **Additional features** — coach experience, travel distance, rest days between games
-- **Stage 2 re-training** — incorporate 2026 regular season data once available for final tournament predictions
-
 ---
 
 **Competition Link:** [March Machine Learning Mania 2026](https://www.kaggle.com/competitions/march-machine-learning-mania-2026)
+
